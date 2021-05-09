@@ -1,0 +1,21 @@
+{
+  "name": "asus/php-exam",
+  "authors": [
+    {
+      "name": "sisir",
+      "email": "mehedi.thedue@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "": "src"
+    }
+  },
+  "require": {
+    "symfony/var-dumper": "^5.2",
+      "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-cassandra": "*"
+  },
+  "description": ""
+}

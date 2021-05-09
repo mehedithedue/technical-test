@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue.js Routing From Scratch Using Vue Router CDN</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+
+<body class="bg-light">
+
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Show Category Wise Document</h2>
+    </div>
+    <main id="app">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <router-link :to="{name: 'home'}" class="btn">Home</router-link>
+                        </li>
+
+                        <li class="nav-item">
+                            <router-link :to="{name: 'document.create'}" class="btn">New Document</router-link>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <router-view></router-view>
+    </main>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../resource/page/home.vue.js"></script>
+<script src="../resource/page/create.vue.js"></script>
+<script src="../resource/page/edit.vue.js"></script>
+
+
+<script>
+    Vue.component("Home", Home);
+    Vue.component("Create", Create);
+    Vue.component("Edit", Edit);
+
+    const routes = [
+        {
+            path: "/",
+            name: 'home',
+            component: Home,
+        },
+        {
+            path: "/edit/:documentId",
+            name: 'document.edit',
+            component: Edit,
+        },
+        {
+            path: "/create/",
+            name: 'document.create',
+            component: Create,
+        },
+    ];
+
+    const router = new VueRouter({
+        routes: routes,
+        mode: "history",
+        base: "/",
+    });
+
+    var app = new Vue({
+        el: "#app",
+        router: router,
+    });
+</script>
+</body>
+</html>
