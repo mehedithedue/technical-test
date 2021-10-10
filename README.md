@@ -1,8 +1,8 @@
-# Richmond Technical Test
+# Technical Test
 
 ## Project overview
-* This project is build with Core php as backend without any framework as requirement. 
-* Also for frontend used Vue js CDN, Not CLI as test requirement.
+* This project is build with Core php as backend without any framework. 
+* Also for frontend used Vue js CDN, Not CLI.
 
 ## Project structure
 * All PHP Functionality is in ``/src`` folder.
